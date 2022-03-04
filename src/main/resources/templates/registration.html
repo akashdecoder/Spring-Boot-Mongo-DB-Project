@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MONGO DB Project</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/mainimages/sigmlogo.jpeg" type="image/x-icon" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+<br>
+<br>
+
+<div>
+    <br>
+    <br>
+</div>
+
+<div class="container">
+    <br>
+    <br>
+    <div class="section-title text-center">
+        <h3><b>Add User</b></h3>
+        <hr>
+    </div>
+    <br>
+
+    <form class="form-group text-center" method="post"
+          th:action="@{/registered}"
+          th:object="${user}">
+        <div th:if="${warning != null}" class="alert alert-danger text-center">[[${warning}]]</div>
+        <div th:if="${message != null}" class="alert alert-success text-center">[[${message}]]</div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input placeholder="Name" id="name" class="form-control" th:field="*{name}"
+                           required>
+                    <label for="name">Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input placeholder="Email" name="email" type="email" id="email" class="form-control"
+                           th:field="*{email}"
+                           required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input placeholder="Designation" id="designation" class="form-control" th:field="*{designation}"
+                           required>
+                    <label for= "designation">Designation</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input placeholder="Contact" id="contact" class="form-control" th:field="*{contact}"
+                           required>
+                    <label for= "contact">Contact</label>
+                </div>
+            </div>
+            <div class="col-md-12 text-center" th:if="${#fields.hasErrors('global')}">
+                <b><p style="color: red" th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" /></b>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <button type="submit" class="btn btn-success hvr-bounce-to-top btn-lg"><b>Sign Up</b></button>
+                <br>
+                <br>
+<!--                <a type="button" class="btn btn-link" href="/login">Already registered? Login</a>-->
+                <br>
+                <br>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
