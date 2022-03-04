@@ -23,4 +23,6 @@ public class User {
 
     private @Getter @Setter String contact;
 
+    private @Getter @Setter int age;
+
 }

@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class Project1Application{
+public class Project1Application {
 
 	@Autowired
 	UserRepository userRepository;
